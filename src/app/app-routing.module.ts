@@ -1,8 +1,19 @@
+import { AppComponent } from './app.component';
+import { InvoiceBuliderComponent } from './invoice-builder/invoice-bulider.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'invoice-builder',
+    loadChildren: './invoice-builder/invoice-builder.module#InvoiceBuilderModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'invoice-builder'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
