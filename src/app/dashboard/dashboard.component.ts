@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-invoice-bulider',
+  selector: 'app-dashboard',
   template: `
-    <h1>
-      invoice-bulider works!
-    </h1>
+    <p>
+     <app-side-nav></app-side-nav>
+    </p>
   `,
   styles: []
 })
-export class InvoiceBuliderComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   constructor() { }
 
