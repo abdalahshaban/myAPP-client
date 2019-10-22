@@ -1,0 +1,41 @@
+<mat-card>
+    <h3>Create Invoice</h3>
+    <form [formGroup]="invoicForm" class="example-container" novalidate (ngSubmit)='onSubmit()'>
+        <mat-form-field color='primary'>
+            <input matInput placeholder="Item" formControlName="item" />
+            <mat-error *ngIf="invoicForm.controls.item.invalid && invoicForm.controls.item.touched "> item is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field color='primary'>
+            <input matInput [matDatepicker]="date" placeholder="Choose a Date" formControlName="date" />
+            <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+            <mat-datepicker #date></mat-datepicker>
+            <mat-error *ngIf="invoicForm.controls.date.invalid"> Date is required</mat-error>
+        </mat-form-field>
+        <mat-form-field color='primary'>
+            <input matInput [matDatepicker]="due" placeholder="Choose a due Date" formControlName="due" />
+            <mat-datepicker-toggle matSuffix [for]="due"></mat-datepicker-toggle>
+            <mat-datepicker #due></mat-datepicker>
+            <mat-error *ngIf="invoicForm.controls.due.invalid"> Due is required</mat-error>
+        </mat-form-field>
+        <mat-form-field color='primary'>
+            <input matInput placeholder="Qty" type="number" formControlName="qty" />
+            <mat-error *ngIf="invoicForm.controls.qty.invalid"> Qty is required</mat-error>
+        </mat-form-field>
+        <mat-form-field color='primary'>
+            <input matInput placeholder="Tax" type="number" formControlName="tax" />
+        </mat-form-field>
+        <mat-form-field color='primary'>
+            <input matInput placeholder="Rate" type="number" formControlName="rate" />
+        </mat-form-field>
+
+        <div>
+            <button mat-raised-button type="submit" color="accent" [disabled]="!invoicForm.valid">
+                Save
+            </button>
+            <button mat-raised-button type="submit">
+                Cancel
+            </button>
+        </div>
+    </form>
+</mat-card>
